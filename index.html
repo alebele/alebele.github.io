@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar System</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      place-items: center;
+      min-width: 320px;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .button-container {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .button-container button {
+	  border-color: none;
+      margin-bottom: -3px;
+      background-color: transparent;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+    
+    .info-container {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <audio id="background-music" loop>
+    <source src="./assets/star_wars_song.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="info-container">
+    <p><i>Project:</i> <strong>Solar System Simulation</strong></p>
+	<p><i>Specifications:</i></p>
+    <ul>
+	  <li>click buttons to play/pause background music</li>
+      <li>zoom in/out using scroll</li>
+      <li>use the left-click to rotate </li>
+    </ul>
+  </div>
+
+  <div class="button-container">
+    <button id="play-button">play music</button>
+    <button id="pause-button">pause music</button>
+  </div>
+
+  <script type="module" src="index.js"></script>
+
+  <script>
+    // Get the play and pause buttons
+    const playButton = document.getElementById('play-button');
+    const pauseButton = document.getElementById('pause-button');
+
+    // Get the background music audio element
+    const backgroundMusic = document.getElementById('background-music');
+
+    // Add event listeners to the buttons
+    playButton.addEventListener('click', function() {
+      backgroundMusic.play();
+    });
+
+    pauseButton.addEventListener('click', function() {
+      backgroundMusic.pause();
+    });
+  </script>
+</body>
+</html>
